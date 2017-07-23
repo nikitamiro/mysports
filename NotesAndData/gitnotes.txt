@@ -1,0 +1,7 @@
+
+cd Desktop
+git clone https://github.com/nmirosh/mysports.git
+cd mysports/
+git add .
+git commit -m "Commit with app, parse server back-end, and connection to mlab aws mongo dev db"
+git push -u origin master
