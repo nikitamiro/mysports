@@ -1,0 +1,59 @@
+----------------------------
+mlab - mysports
+----------------------------
+
+account: mysports
+
+----------------------------
+Mongo db [aws cloud] terminal - data access
+----------------------------
+
+mongo ds159998.mlab.com:59998/mysportsdev -u nikita -p password1
+
+use mysportsdev
+db.WallPost.find()
+db.WallPost.findOne()
+
+----------------------------
+Parse Server [local dev] terminal - init
+----------------------------
+
+pwd
+npm run start
+
+----------------------------
+Parse Server [local dev] terminal - return data from parse server connected to mongo
+----------------------------
+
+curl -X GET 
+-H "X-Parse-Application-Id: com.razeware.ParseTutorial" 
+-H "Content-Type: application/json" 
+-d '{}' 
+http://localhost:1337/parse/classes/WallPost
+
+----------------------------
+Mongo db [local dev] terminal - init
+----------------------------
+
+location: in Macintosh HD -> data/db
+
+1st terminal (launch db): mongod
+2nd terminal (launch shell): mongo 
+
+Test import data in bulk to db (using regular terminal): mongoimport --db test --collection restaurants --drop --file /Users/Nikita/Desktop/MongoTest/primer-dataset.json
+
+Test shell code (using mongo shell):
+
+use test
+db.restaurants.find()
+db.restaurants.find( { "borough": "Manhattan" } )
+db.restaurants.find( { "grades.grade": "B" } )
+
+----------------------------
+Resources
+----------------------------
+
+Instructions: https://www.raywenderlich.com/146736/parse-server-tutorial-ios
+Mongo docs: https://docs.mongodb.com/getting-started/shell/query/
+Parse Server extra: https://github.com/codepath/ios_guides/wiki/Configuring-a-Parse-Server
+Parse to Parser Server migration: https://learnappmaking.com/how-to-migrate-parse-app-parse-server-heroku-mongolab/
